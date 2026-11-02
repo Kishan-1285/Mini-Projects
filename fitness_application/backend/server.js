@@ -5,6 +5,7 @@ const app = express()
 const workoutRoutes = require('./routes/workout')
 
 app.use(express.json());
+
 app.use((req, res, next) => {
   console.log(req.path, req.method)
   next()
@@ -19,8 +20,5 @@ mongoose.connect(process.env.MONGO_URI)
     })
   })
   .catch((error)=>{
-    console.log(error)
+    console.log("MongoDB connection error :",error)
   })
-
-
-
